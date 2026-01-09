@@ -1,0 +1,15 @@
+
+:root{
+  --txt-primary:#ffffff;
+  --txt-secondary:#aaaaaa;
+  --button-bg-green:#194925;
+  --button-bg-black:rgba(0, 0, 0, 0.411);
+  --txt-green:#53db78;
+  --body-color:#000d01;
+  
+}
+body{
+  font-family: 'DM Sans',sans-serif !important;
+  color: var(--txt-primary) !important;
+  background-color: var(--body-color) !important;
+}

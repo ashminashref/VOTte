@@ -1,0 +1,99 @@
+/* General Page Styles */
+.home-page {
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; 
+  overflow: hidden;
+}
+
+.video-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3; /* Subtle background effect */
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.9) 100%);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+}
+
+.hero-min-height {
+  min-height: calc(100vh - 100px); /* Adjusts for navbar height */
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 6rem); /* Responsive font size */
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn-voter {
+  background-color: #4ade803e !important;
+  color: #ffffff !important;
+  border:1px solid  rgb(48, 95, 48) !important;
+  transition: transform 0.2s !important;
+}
+
+.btn-voter:hover {
+  background-color: #22c55e !important;
+  transform: translateY(-2px) !important;
+}
+
+.btn-org {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.btn-org:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+}
+
+
+.text-wrapper{
+    border:1px solid  #22c55e !important;
+}
+@media(max-width:768px){
+    .mycontainer{
+        margin-top: 50px;
+     
+    }
+    .small-text{
+        font-size: 13px;
+    }
+    .text-wrapper{
+        border: none !important;
+    }
+   .hero-container{
+    height: 600px;
+   }
+}

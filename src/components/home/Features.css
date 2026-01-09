@@ -1,0 +1,69 @@
+.heading{
+color: var(--txt-green);
+    border: 1px solid var(--txt-green) ;
+}
+.f-h6-1{
+    color: var(--txt-secondary);
+}
+
+
+
+
+
+.feature-card {
+  position: relative;
+  background-color: #021105; /* Dark theme */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 40px 30px;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* The Spotlight Effect */
+.spotlight-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(34, 197, 94, 0.15),
+    transparent 50%
+  );
+  backdrop-filter: blur(1000px);
+  opacity: var(--spotlight-opacity) !important;
+  transition: opacity 0.5s ease-in-out !important;
+}
+
+.content-layer {
+  position: relative;
+  z-index: 2; 
+}
+
+.heading-label {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  border: 1px solid rgb(4, 63, 4);
+  letter-spacing: 1px;
+}
+
+.feature-icon-svg {
+  color: #22c55e;
+  filter: drop-shadow(0 0 15px rgba(34, 197, 94, 0.3));
+}
+
+.feature-tagline {
+  color: #22c55e;
+  font-weight: 500;
+}
+
+.feature-description {
+  color: #888;
+  line-height: 1.6;
+}

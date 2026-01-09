@@ -1,0 +1,40 @@
+.foot-container{
+    background-color: #000b02;
+    margin-top: -35px;
+    z-index: 10 !important;
+    position: relative;
+}
+.footer-p-1{
+    color: var(--txt-secondary);
+}
+ul{
+    list-style: none;
+
+}
+ul h6{
+    color: var(--txt-secondary);
+}
+ul li{
+    line-height: 1.8;
+    font-size: 14px;
+    transition: ease-in-out 0.2s;
+}
+.mail-txt{
+    color: var(--txt-green);
+}
+.logo{
+
+  filter: drop-shadow(0 0 25px rgba(34, 197, 94, 0.3));
+font-weight: bold !important;
+    color: var(--txt-green);
+
+}
+ul li:hover{
+    cursor: pointer;
+    color: var(--txt-green);
+}
+@media(max-width:768px){
+    .foot-container{
+        margin-top: -25px;
+    }
+}
