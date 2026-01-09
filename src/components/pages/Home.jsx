@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { CircleCheck, ShieldCheck, Zap, Lock, Users } from 'lucide-react';
 import CollapsibleExample from '../sharedcomponents/CollapsibleExample';
 import './Home.css';
-import Features from '../Home/Features';
+import Features from '../home/Features';
 import Footer from '../sharedcomponents/Footer';
 import Working from '../home/Working';
 import FAQ from '../home/FAQ';
