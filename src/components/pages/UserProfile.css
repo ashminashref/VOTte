@@ -1,0 +1,60 @@
+.profile-wrapper {
+  background-color: #000b00;
+  min-height: 100vh;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Stat Cards with Glow */
+.stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(25, 135, 84, 0.2);
+  padding: 1.5rem;
+  border-radius: 4px; /* Sharp corners for premium feel */
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  border-color: #198754;
+  box-shadow: 0 0 20px rgba(25, 135, 84, 0.1);
+  transform: translateY(-5px);
+}
+
+/* Candidate Cards */
+.candidate-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+}
+
+.candidate-card:hover {
+  background: rgba(25, 135, 84, 0.05) !important;
+  border-color: #198754 !important;
+}
+
+/* Live Pulse Effect */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #198754;
+  border-radius: 50%;
+  box-shadow: 0 0 0 rgba(25, 135, 84, 0.4);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(25, 135, 84, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(25, 135, 84, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(25, 135, 84, 0); }
+}
+
+.tracking-widest { letter-spacing: 0.2em; }
+.uppercase { text-transform: uppercase; }
+.x-small { font-size: 0.7rem; }
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}

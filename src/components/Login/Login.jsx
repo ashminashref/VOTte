@@ -1,5 +1,6 @@
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import './Login.css';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
@@ -55,13 +56,16 @@ const Login = () => {
                 </div>
 
                 <div className="d-grid">
-                  <Button 
+                    <Link to = '/userprofile'>
+                        <Button 
                     variant="success" 
                     className="premium-btn py-3 fw-bold"
                     style={{ backgroundColor: '#198754' }}
                   >
                     Authorize Session
                   </Button>
+                    </Link>
+              
                 </div>
               </Form>
 
