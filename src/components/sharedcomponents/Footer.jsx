@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div>
 <h1 className='text-center display-1 logo'>VOTte</h1>
-    <div className='p-5 foot-container'>
+    <div className='mt-5 foot-container'>
         
         <Container>
             <Row className='gy-5'>
