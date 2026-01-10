@@ -1,0 +1,48 @@
+/* Login.css */
+
+/* Subtle pulse for the login button */
+@keyframes glow-pulse {
+  0% { box-shadow: 0 0 5px rgba(25, 135, 84, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(25, 135, 84, 0.6); }
+  100% { box-shadow: 0 0 5px rgba(25, 135, 84, 0.2); }
+}
+
+.premium-btn {
+  animation: glow-pulse 3s infinite;
+  transition: all 0.3s ease !important;
+  border-radius: 2px !important; /* Sharp edges look more premium than round */
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.premium-btn:hover {
+  letter-spacing: 2px;
+  background-color: #1eb36a !important;
+}
+
+/* Minimalist floating inputs */
+.premium-input {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 0 !important;
+  padding-left: 0 !important;
+  color: white !important;
+  transition: border-color 0.4s ease !important;
+}
+
+.premium-input:focus {
+  box-shadow: none !important;
+  border-bottom: 1px solid #198754 !important;
+}
+
+/* Background light source */
+.bg-glow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  /* background: radial-gradient(circle at 70% 50%, rgba(25, 135, 84, 0.15) 0%, transparent 70%); */
+  pointer-events: none;
+}

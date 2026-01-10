@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './Nav.css'
 import Features from '../home/Features';
+import { Link } from 'react-router-dom';
 
 function CollapsibleExample() {
   return (
@@ -27,9 +28,12 @@ function CollapsibleExample() {
           
           {/* Right: Action Button */}
           <Nav className="align-items-lg-center">
-            <button className='btn btn-request-demo px-3 py-2'>
+            <Link to = '/login' >
+             <button className='btn btn-request-demo px-3 py-2'>
               Get Started
             </button>
+            </Link>
+           
           </Nav>
         </Navbar.Collapse>
       </Container>
