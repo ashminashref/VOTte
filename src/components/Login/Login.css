@@ -13,6 +13,7 @@
   border-radius: 2px !important; /* Sharp edges look more premium than round */
   text-transform: uppercase;
   font-size: 0.85rem;
+  width: 100%;
 }
 
 .premium-btn:hover {

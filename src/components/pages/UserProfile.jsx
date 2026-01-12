@@ -1,90 +1,121 @@
-import React from 'react';
-import { Container, Row, Col, Card, Badge, ProgressBar } from 'react-bootstrap';
-import { CheckCircle, Activity, Users, Award } from 'react-feather'; // Optional: npm i react-feather
+import React, { useState } from 'react';
+import { Container, Row, Col, Badge } from 'react-bootstrap';
+import { User, Users, CheckSquare, Shield, Zap, Award, LogOut, ChevronRight } from 'react-feather';
 import './UserProfile.css';
 
 const UserProfile = () => {
+  const [activeTab, setActiveTab] = useState('profile');
+
   const candidates = [
-    { name: "Adarsh K", party: "LDF", post: "Chairman", image: "https://via.placeholder.com/50", status: "Active" },
-    { name: "Meera Nair", party: "UDF", post: "General Secretary", image: "https://via.placeholder.com/50", status: "Active" },
-    { name: "Sanjay Das", party: "Independent", post: "Arts Club", image: "https://via.placeholder.com/50", status: "Withdrawn" },
+    { name: "Adarsh K", party: "LDF", post: "Chairman", image: "https://i.pravatar.cc/150?u=1", status: "Active" },
+    { name: "Meera Nair", party: "UDF", post: "Secretary", image: "https://i.pravatar.cc/150?u=2", status: "Active" },
+    { name: "Sanjay Das", party: "Ind.", post: "Arts Club", image: "https://i.pravatar.cc/150?u=3", status: "Withdrawn" },
   ];
 
+  const renderProfile = () => (
+    <div className="tab-content-wrapper">
+      <div className="profile-hero mb-4">
+        <div className="d-flex align-items-center">
+          <div className="avatar-circle">AA</div>
+          <div className="ms-4">
+            <h2 className="fw-bold mb-1">Ashmin Ashraf</h2>
+            <div className="d-flex align-items-center gap-2">
+              <Badge bg="none" className="badge-outline">ID: 0x71C...4f92</Badge>
+              <span className="text-success small fw-bold">● Verified Voter</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <Row className="g-3">
+        <Col md={6} lg={3}><StatBox label="Reputation" value="4.9" icon={<Award />} /></Col>
+        <Col md={6} lg={3}><StatBox label="Votes Cast" value="12" icon={<CheckSquare />} /></Col>
+        <Col md={6} lg={3}><StatBox label="Tokens" value="150" icon={<Zap />} /></Col>
+        <Col md={6} lg={3}><StatBox label="Security" value="High" icon={<Shield />} /></Col>
+      </Row>
+    </div>
+  );
+
+  const renderCandidates = () => (
+    <div className="tab-content-wrapper">
+      <h5 className="section-heading">Available Candidates</h5>
+      <div className="candidate-list">
+        {candidates.map((c, i) => (
+          <div key={i} className={`candidate-row ${c.status === 'Withdrawn' ? 'opacity-50' : ''}`}>
+            <img src={c.image} alt="" />
+            <div className="flex-grow-1 ms-3">
+              <h6 className="mb-0 fw-bold">{c.name}</h6>
+              <span className="text-muted small uppercase">{c.post} • {c.party}</span>
+            </div>
+            <div className="text-end">
+              <div className={`status-dot ${c.status.toLowerCase()}`}></div>
+              <span className="small d-block text-muted">{c.status}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
   return (
-    <div className="profile-wrapper">
-      <Container className="py-5">
-        {/* Header Section */}
-        <Row className="mb-5 align-items-center">
-          <Col md={8}>
-            <h6 className="text-success tracking-widest uppercase mb-1">Voter Dashboard</h6>
-            <h2 className="text-white fw-bold">Ashmin Ashraf <Badge bg="success" className="ms-2 fs-6 fw-normal">Verified</Badge></h2>
-            <p className="text-secondary mb-0">Node ID: 0x71C...4f92 • Thamarassery Precinct</p>
-          </Col>
-          <Col md={4} className="text-md-end mt-3 mt-md-0">
-            <div className="status-orb d-inline-flex align-items-center bg-dark px-3 py-2 rounded-pill border border-secondary">
-              <span className="pulse-dot me-2"></span>
-              <span className="text-white small fw-bold">Blockchain Synced</span>
-            </div>
-          </Col>
-        </Row>
+    <div className="dashboard-root">
+      {/* Sidebar for Desktop */}
+      <aside className="sidebar d-none d-lg-flex">
+        <div className="brand">VOT<span>te</span></div>
+        <div className="nav-group">
+          <NavBtn id="profile" icon={<User />} label="Profile" active={activeTab} onClick={setActiveTab} />
+          <NavBtn id="candidates" icon={<Users />} label="Candidates" active={activeTab} onClick={setActiveTab} />
+          <NavBtn id="voting" icon={<CheckSquare />} label="Voting" active={activeTab} onClick={setActiveTab} />
+        </div>
+        <button className="logout-btn mt-auto"><LogOut size={18} /> Logout</button>
+      </aside>
 
-        {/* Stats Row */}
-        <Row className="g-4 mb-5">
-          <Col xs={12} md={6} lg={3}>
-            <div className="stat-card">
-              <Activity className="text-success mb-3" size={20} />
-              <div className="text-secondary small uppercase">Voting Status</div>
-              <div className="text-white fs-4 fw-bold">Active</div>
-            </div>
-          </Col>
-          <Col xs={12} md={6} lg={3}>
-            <div className="stat-card">
-              <Award className="text-success mb-3" size={20} />
-              <div className="text-secondary small uppercase">Participation Rate</div>
-              <div className="text-white fs-4 fw-bold">92%</div>
-              <ProgressBar variant="success" now={92} className="mt-2" style={{ height: '4px' }} />
-            </div>
-          </Col>
-          <Col xs={12} md={6} lg={3}>
-            <div className="stat-card">
-              <Users className="text-success mb-3" size={20} />
-              <div className="text-secondary small uppercase">Total Votes Cast</div>
-              <div className="text-white fs-4 fw-bold">12</div>
-            </div>
-          </Col>
-          <Col xs={12} md={6} lg={3}>
-            <div className="stat-card">
-              <CheckCircle className="text-success mb-3" size={20} />
-              <div className="text-secondary small uppercase">Next Election</div>
-              <div className="text-white fs-4 fw-bold">Jan 25</div>
-            </div>
-          </Col>
-        </Row>
+      {/* Main Content Area */}
+      <main className="content-area">
+        <header className="mobile-header d-lg-none">
+          <div className="brand">VOTE<span>CORE</span></div>
+        </header>
+        
+        <Container className="py-4 py-lg-5">
+          <div className="view-title mb-4">
+            <h1 className="h4 text-uppercase tracking-wider fw-bold text-muted">
+              {activeTab} <ChevronRight size={16} />
+            </h1>
+          </div>
+          {activeTab === 'profile' && renderProfile()}
+          {activeTab === 'candidates' && renderCandidates()}
+          {activeTab === 'voting' && (
+             <div className="empty-state">
+                <p>No active elections at the moment.</p>
+             </div>
+          )}
+        </Container>
+      </main>
 
-        {/* Candidate Section */}
-        <h4 className="text-white mb-4 fw-light">Live <span className="fw-bold">Candidates</span></h4>
-        <Row className="g-4">
-          {candidates.map((c, index) => (
-            <Col key={index} lg={4}>
-              <Card className="candidate-card h-100">
-                <Card.Body className="d-flex align-items-center">
-                  <img src={c.image} alt={c.name} className="rounded-circle border border-success p-1 me-3" width="60" />
-                  <div>
-                    <h5 className="text-white mb-0">{c.name}</h5>
-                    <div className="text-success small fw-bold">{c.party}</div>
-                    <div className="text-secondary x-small mt-1 uppercase tracking-wider">{c.post}</div>
-                  </div>
-                  <div className="ms-auto">
-                    <div className={`status-indicator ${c.status === 'Active' ? 'bg-success' : 'bg-danger'}`}></div>
-                  </div>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </Container>
+      {/* Bottom Nav for Mobile */}
+      <nav className="bottom-nav d-lg-none">
+        <NavBtn id="profile" icon={<User />} label="Profile" active={activeTab} onClick={setActiveTab} />
+        <NavBtn id="candidates" icon={<Users />} label="List" active={activeTab} onClick={setActiveTab} />
+        <NavBtn id="voting" icon={<CheckSquare />} label="Vote" active={activeTab} onClick={setActiveTab} />
+      </nav>
     </div>
   );
 };
+
+const NavBtn = ({ id, icon, label, active, onClick }) => (
+  <button className={`nav-item ${active === id ? 'active' : ''}`} onClick={() => onClick(id)}>
+    {icon} <span>{label}</span>
+  </button>
+);
+
+const StatBox = ({ label, value, icon }) => (
+  <div className="stat-box">
+    <div className="icon">{icon}</div>
+    <div>
+      <div className="label">{label}</div>
+      <div className="value">{value}</div>
+    </div>
+  </div>
+);
 
 export default UserProfile;
